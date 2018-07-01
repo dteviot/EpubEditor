@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Epub Editor</title>
+    <style>
+        #drop_zone {
+        border: 5px solid blue;
+        width:  200px;
+        height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Epub Editor</h1>
+    <div id="drop_zone">
+        <p>Drag epub file to this Drop Zone ...</p>
+    </div>
+    <table id="controls" hidden="true">
+        <tr>
+            <td></td>
+            <td><button id="checkForZeroSizeImagesButton">Check for Zero Size Images</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="removeZeroSizeImagesButton">Remove Zero Size images</button></td>
+        </tr>
+        <tr hidden="true">
+            <td></td>
+            <td><button id="listImagesButton">List Images in view order</button></td>
+        </tr>
+        <tr hidden="true">
+            <td>Watermark</td>
+            <td><textarea id="watermark" type="text" name="watermark" rows="6" cols="70">&lt;a href="www.novelparadise.com"&gt;This EPUB was downloaded from www.novelparadise.com&lt;/a&gt;</textarea></td>
+        </tr>
+        <tr hidden="true">
+            <td></td>
+            <td><button id="watermarkButton">Apply Watermark</button></td>
+        </tr>
+    </table>
+    <div id="outputTarget">
+        <h4 id="listHeader"></h4>
+        <ol id="fileList">
+
+        </ol>
+    </div>
+    <script src="jszip.min.js"></script>
+    <script src="epub.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

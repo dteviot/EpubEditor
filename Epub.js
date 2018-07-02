@@ -4,6 +4,7 @@
 class Opf {
     constructor(dom, zipObjectName) {
         this.dom = dom;
+        this.zipObjectName = zipObjectName;
         this.zipPath = this.extractPath(zipObjectName);
         this.items = [...dom.querySelectorAll("manifest item")]
             .reduce(function(prev, curr) {

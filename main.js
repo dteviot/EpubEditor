@@ -39,7 +39,8 @@ class Main {
             console.log('... file.name = ' + file.name);
             return this.epub.load(file)
                 .then(() => this.removeDragData(ev))
-                .then(() => this.onEpubLoaded());
+                .then(() => this.onEpubLoaded())
+                .catch(e => window.alert(e));
         }
     }    
 

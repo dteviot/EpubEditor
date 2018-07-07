@@ -53,6 +53,7 @@ class Opf {
     }
 
     removeItems(items) {
+        let modified = false;
         for(let item of items) {
             let id = item.id;
             let itemref = this.dom.querySelector("spine itemref[idref='"+id+"']");
@@ -64,7 +65,9 @@ class Opf {
                 source.remove();
             }
             item.remove();
+            modified = true;
         }
+        return modified;
     }
 }
 
@@ -77,11 +80,14 @@ class ImageRemover {
     }
 
     removeTagsForImages(dom, zipName) {
+        let modified = false;
         for(let element of dom.querySelectorAll("img, image")) {
             if (this.isImageToRemove(element, zipName)) {
+                modified = true;
                 this.remove(element);
             }
         }
+        return modified;
     }
 
     isImageToRemove(element, zipName) {
@@ -163,7 +169,7 @@ class Epub {
             let div = dom.createElementNS("http://www.w3.org/1999/xhtml", "div");
             div.innerHTML = watermark;
             dom.body.appendChild(div);
-            return that.replaceZipObject(zipObjectName, dom);
+            return that.replaceZipObject(zipObjectName, dom, true);
         });        
     }
 
@@ -294,26 +300,28 @@ class Epub {
             sequence = sequence.then(function () {
                 return that.extractXhtnml(zipObjectName);
             }).then(function(dom) {
-                remover.removeTagsForImages(dom, zipObjectName);
-                return that.replaceZipObject(zipObjectName, dom);
+                let modified = remover.removeTagsForImages(dom, zipObjectName);
+                return that.replaceZipObject(zipObjectName, dom, modified);
             });                
         }
         return sequence;
     }
 
-    replaceZipObject(zipObjectName, newDom) {
-        let text = new XMLSerializer().serializeToString(newDom);
-        let file = this.zipObjects.get(zipObjectName);
-        let options = this.createZipOptions(file);
-        return this.zip.file(zipObjectName, text, options);
+    replaceZipObject(zipObjectName, newDom, modified) {
+        if (modified) {
+            let text = new XMLSerializer().serializeToString(newDom);
+            let file = this.zipObjects.get(zipObjectName);
+            let options = this.createZipOptions(file);
+            return this.zip.file(zipObjectName, text, options);
+        }
     }
 
     removeItems(items) {
         for(let i of items) {
             this.zip.remove(this.opf.zipNameForItem(i));
         };
-        this.opf.removeItems(items);
-        return this.replaceZipObject(this.opf.zipObjectName, this.opf.dom);
+        let modified = this.opf.removeItems(items);
+        return this.replaceZipObject(this.opf.zipObjectName, this.opf.dom, modified);
     }
 
     listImagesInViewOrder() {

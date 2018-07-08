@@ -37,6 +37,8 @@ class Main {
         }
         if (file !== null) {
             console.log('... file.name = ' + file.name);
+            this.epub = new Epub();
+            this.resetUI();
             return this.epub.load(file)
                 .then(() => this.removeDragData(ev))
                 .then(() => this.onEpubLoaded())
@@ -108,6 +110,14 @@ class Main {
             let li = document.createElement("li");
             li.textContent = item;
             listElement.appendChild(li);
+        }
+    }
+
+    resetUI() {
+        document.getElementById("controls").hidden = true;
+        document.getElementById("listHeader").textContent = "";
+        for(let e of document.querySelectorAll("ol#fileList  li")) {
+            e.remove();
         }
     }
 

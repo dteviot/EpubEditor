@@ -79,6 +79,11 @@ class Main {
         this.populateList(images.map(i => i.outerHTML));
     }
 
+    extractImages() {
+        return this.epub.extractImages("test.zip", 1)
+            .catch(e => window.alert(e));
+    }
+
     waterMarkEpub() {
         let watermark = document.getElementById("watermark").value;
         let epub = this.epub;
@@ -132,12 +137,7 @@ class Main {
 
     listXhtmlFiles() {
         // ToDo, remove this diagnostics code
-        let listElement = document.getElementById("fileList");
-        for(let name of this.epub.opf.xhtmlNames()) {
-            let li = document.createElement("li");
-            li.textContent = name;
-            listElement.appendChild(li);
-        }
+        this.populateList(this.epub.opf.xhtmlNames());
     }
 
     start() {
@@ -149,6 +149,7 @@ class Main {
         document.getElementById("watermarkButton").onclick = this.waterMarkEpub.bind(this);
         document.getElementById("removeZeroSizeImagesButton").onclick = this.removeZeroSizeImages.bind(this);
         document.getElementById("listImagesButton").onclick = this.listImagesInViewOrder.bind(this);
+        document.getElementById("extractImagesButton").onclick = this.extractImages.bind(this);
     }
 }
 

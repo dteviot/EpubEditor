@@ -318,6 +318,63 @@ class Epub {
         return sequence.then(() => bad);
     }
 
+    extractImages(filename, startChapterIndex) {
+        let newZip = new JSZip();
+        let sequence = Promise.resolve();
+        let that = this;
+        let chapterIndex = startChapterIndex;
+        for(let zipObjectName of this.opf.xhtmlNames()) {
+            let chapterName = ("000" + chapterIndex);
+            chapterName = "c" + chapterName.substring(name.length - 4);
+            ++chapterIndex;
+            sequence = sequence.then(function () {
+                return that.extractXhtnml(zipObjectName);
+            }).then(function(dom) {
+                return that.copyImages(newZip, dom, chapterName);
+            });                
+        }
+        return sequence
+            .then(newZip => newZip.generateAsync({ type: "blob" }))
+            .then(blob => this.writeToDisk(filename, blob));
+    }
+
+    copyImages(newZip, dom, chapterName) {
+        let that = this;
+        let sequence = Promise.resolve();
+        let index = 0;
+        for(let element of dom.querySelectorAll("image")) {
+            sequence = sequence.then(function () {
+                let src = element.getAttribute("xlink:href");
+                let desc = src.split("/");
+                let leaf = that.makeLeafName(++index, desc[desc.length - 1]);
+                if (999 < index) {
+                    throw new Error("Too many images in chaper");
+                }
+                let oldZipObjectname = "OEBPS" + src.substring(2);  // ToDo  Do this properly.
+                let newZipObjectName = chapterName + "/" + leaf;
+                console.log(`"${newZipObjectName}, "${desc}"`);
+                return that.copyImage(newZip, oldZipObjectname, newZipObjectName);
+            });
+        };
+        return sequence;
+    }
+
+    makeLeafName(index, originalName) {
+        let ext = originalName.substring(originalName.lastIndexOf("."));
+        let name = ("00" + index);
+        name = name.substring(name.length - 3);
+        return name + ext;
+    }
+
+    copyImage(newZip, oldZipObjectname, newZipObjectName) {
+        let that = this;
+        let file = this.zipObjects.get(oldZipObjectname);
+        return file.async("blob").then(function (blob){
+            let options = that.createZipOptions(file);
+            return newZip.file(newZipObjectName, blob, options);
+        });
+    }
+
     findXhtmlError(xhtmlAsString) {
         let doc = new DOMParser().parseFromString(xhtmlAsString, "application/xml");
         return doc.querySelector("parsererror");

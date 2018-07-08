@@ -137,14 +137,13 @@ class Epub {
 
     /** Write the watermark to end of each XHTML file (excluding cover) in epub */
     watermarkContent(watermark) {
-        let that = this;
-        let sequence = Promise.resolve();
-        for(let zipObjectName of this.opf.xhtmlNames()) {
-            sequence = sequence.then(function () {
-                return that.watermarkFile(zipObjectName, watermark);
-            });                
-        }
-        return sequence;
+        let watermarkFile = function(dom) {
+            let div = dom.createElementNS("http://www.w3.org/1999/xhtml", "div");
+            div.innerHTML = watermark;
+            dom.body.appendChild(div);
+            return true;
+        };
+        return this.processEachXhtmlFile(watermarkFile);
     }
 
     /** Write modified epub to disk with requested filename */
@@ -160,17 +159,6 @@ class Epub {
     needsWatermark(file) {
         // ToDo, replace this with real logic
         return file.name === "OEBPS/Text/0001_1_Chapter_...sing_Death.xhtml";
-    }
-
-    watermarkFile(zipObjectName, watermark) {
-        let that = this;
-        return this.extractXhtnml(zipObjectName).then(function (dom){
-            console.log("Updating " + zipObjectName);
-            let div = dom.createElementNS("http://www.w3.org/1999/xhtml", "div");
-            div.innerHTML = watermark;
-            dom.body.appendChild(div);
-            return that.replaceZipObject(zipObjectName, dom, true);
-        });        
     }
 
     /** private */
@@ -294,13 +282,18 @@ class Epub {
 
     removeTagsForImages(imagesToRemove) {
         let remover = new ImageRemover(this.opf, imagesToRemove);
+        let mutator = (dom, zipObjectName) => remover.removeTagsForImages(dom, zipObjectName);
+        return this.processEachXhtmlFile(mutator);
+    }
+
+    processEachXhtmlFile(mutator) {
         let sequence = Promise.resolve();
         let that = this;
         for(let zipObjectName of this.opf.xhtmlNames()) {
             sequence = sequence.then(function () {
                 return that.extractXhtnml(zipObjectName);
             }).then(function(dom) {
-                let modified = remover.removeTagsForImages(dom, zipObjectName);
+                let modified = mutator(dom, zipObjectName);
                 return that.replaceZipObject(zipObjectName, dom, modified);
             });                
         }

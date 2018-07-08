@@ -300,6 +300,30 @@ class Epub {
         return sequence;
     }
 
+    checkForInvalidXhtml() {
+        let sequence = Promise.resolve();
+        let bad = [];
+        let that = this;
+        for(let zipObjectName of this.opf.xhtmlNames()) {
+            sequence = sequence.then(function () {
+                let file = that.zipObjects.get(zipObjectName);
+                return file.async("text")
+            }).then(function(text) {
+                let error = that.findXhtmlError(text);
+                if (error != null) {
+                    bad.push({zipObjectName, error: error.textContent});
+                }
+            });                
+        }
+        return sequence.then(() => bad);
+    }
+
+    findXhtmlError(xhtmlAsString) {
+        let doc = new DOMParser().parseFromString(xhtmlAsString, "application/xml");
+        return doc.querySelector("parsererror");
+        return (parsererror === null) ? null : parsererror.textContent;
+    }
+
     replaceZipObject(zipObjectName, newDom, modified) {
         if (modified) {
             let text = new XMLSerializer().serializeToString(newDom);

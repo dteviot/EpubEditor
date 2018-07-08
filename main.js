@@ -62,6 +62,15 @@ class Main {
         document.getElementById("controls").hidden = false;
     }
 
+    checkForInvalidXhtml() {
+        let that = this;
+        this.epub.checkForInvalidXhtml().then(function (invalid) {
+            let header = document.getElementById("listHeader");
+            header.textContent = (0 == invalid.length) ? "No invalid files found" : "Following XHTML files are not valid";
+            that.populateList(invalid.map(i => i.zipObjectName));
+        });
+    }
+
     checkForZeroSizeImages() {
         let images = this.epub.findZeroSizeImages();
         let headerText = (0 == images.length) ? "No zero size images found" : "Following zero size images found";
@@ -135,6 +144,7 @@ class Main {
         let control = document.getElementById("drop_zone");
         control.ondrop = this.dropHandler.bind(this);
         control.ondragover = this.dragOverHandler.bind(this);
+        document.getElementById("checkForInvalidXhtmlButton").onclick = this.checkForInvalidXhtml.bind(this);
         document.getElementById("checkForZeroSizeImagesButton").onclick = this.checkForZeroSizeImages.bind(this);
         document.getElementById("watermarkButton").onclick = this.waterMarkEpub.bind(this);
         document.getElementById("removeZeroSizeImagesButton").onclick = this.removeZeroSizeImages.bind(this);

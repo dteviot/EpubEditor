@@ -80,7 +80,7 @@ class Main {
     }
 
     extractImages() {
-        return this.epub.extractImages("test.zip", 1)
+        return this.epub.extractImages("test.zip", 0)
             .catch(e => window.alert(e));
     }
 
@@ -92,7 +92,14 @@ class Main {
     }
 
     removeZeroSizeImages() {
-        let images = this.epub.findZeroSizeImages();
+        return this.removeImages(this.epub.findZeroSizeImages());
+    }
+
+    removeAllImages() {
+        return this.removeImages(this.epub.findAllImagesExceptCover());
+    }
+
+    removeImages(images) {
         return this.epub.removeTagsForImages(images)
             .then(() => this.epub.removeItems(images))
             .then(() => this.epub.save("test.epub"));
@@ -149,6 +156,7 @@ class Main {
         document.getElementById("watermarkButton").onclick = this.waterMarkEpub.bind(this);
         document.getElementById("removeZeroSizeImagesButton").onclick = this.removeZeroSizeImages.bind(this);
         document.getElementById("listImagesButton").onclick = this.listImagesInViewOrder.bind(this);
+        document.getElementById("removeAllImagesButton").onclick = this.removeAllImages.bind(this);
         document.getElementById("extractImagesButton").onclick = this.extractImages.bind(this);
     }
 }

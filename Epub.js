@@ -280,6 +280,11 @@ class Epub {
         return toRemove;
     }
 
+    findAllImagesExceptCover() {
+        return this.opf.imageFileItems()
+            .filter(item => item.getAttribute("id") !== "cover-image");
+    }
+
     removeTagsForImages(imagesToRemove) {
         let remover = new ImageRemover(this.opf, imagesToRemove);
         let mutator = (dom, zipObjectName) => remover.removeTagsForImages(dom, zipObjectName);

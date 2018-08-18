@@ -256,7 +256,7 @@ class Epub {
     extractXhtnml(zipObjectName) {
         let file = this.zipObjects.get(zipObjectName);
         return file.async("text").then(function (text){
-            return new DOMParser().parseFromString(text, "application/xml");
+            return new DOMParser().parseFromString(text, "text/html");
         });
     }
     
@@ -389,10 +389,16 @@ class Epub {
     replaceZipObject(zipObjectName, newDom, modified) {
         if (modified) {
             let text = new XMLSerializer().serializeToString(newDom);
+            text = this.patchHtmlConversion(text);
             let file = this.zipObjects.get(zipObjectName);
             let options = this.createZipOptions(file);
             return this.zip.file(zipObjectName, text, options);
         }
+    }
+
+    patchHtmlConversion(textToFix) {
+        return textToFix.replace("<!--?xml version=\"1.0\" encoding=\"utf-8\"?-->", 
+            "<?xml version=\"1.0\" encoding=\"utf-8\"?>");
     }
 
     removeItems(items) {

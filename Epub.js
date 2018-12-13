@@ -291,6 +291,18 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
+    removeElementsMatchingCss(css) {
+        let mutator = function(dom, zipObjectName) {
+            let altered = false;
+            for(let e of dom.querySelectorAll(css)) {
+                e.remove();
+                altered = true;
+            }
+            return altered;
+        }
+        return this.processEachXhtmlFile(mutator);
+    }
+
     processEachXhtmlFile(mutator) {
         let sequence = Promise.resolve();
         let that = this;

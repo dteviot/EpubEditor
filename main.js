@@ -91,6 +91,13 @@ class Main {
             .then(() => epub.save("test.epub"));
     }
 
+    removeElementsMatchingCss() {
+        let css = document.getElementById("removeCssInput").value;
+        let epub = this.epub;
+        return epub.removeElementsMatchingCss(css)
+            .then(() => epub.save("test.epub"));
+    }
+
     removeZeroSizeImages() {
         return this.removeImages(this.epub.findZeroSizeImages());
     }
@@ -158,6 +165,7 @@ class Main {
         document.getElementById("listImagesButton").onclick = this.listImagesInViewOrder.bind(this);
         document.getElementById("removeAllImagesButton").onclick = this.removeAllImages.bind(this);
         document.getElementById("extractImagesButton").onclick = this.extractImages.bind(this);
+        document.getElementById("removeElementsButton").onclick = this.removeElementsMatchingCss.bind(this);
     }
 }
 

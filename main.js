@@ -98,6 +98,12 @@ class Main {
             .then(() => epub.save("test.epub"));
     }
 
+    sanitizeXhtml() {
+        let epub = this.epub;
+        return epub.sanitizeXhtml()
+            .then(() => epub.save("test.epub"));
+    }
+
     removeZeroSizeImages() {
         return this.removeImages(this.epub.findZeroSizeImages());
     }
@@ -166,6 +172,7 @@ class Main {
         document.getElementById("removeAllImagesButton").onclick = this.removeAllImages.bind(this);
         document.getElementById("extractImagesButton").onclick = this.extractImages.bind(this);
         document.getElementById("removeElementsButton").onclick = this.removeElementsMatchingCss.bind(this);
+        document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
     }
 }
 

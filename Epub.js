@@ -303,6 +303,15 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
+    sanitizeXhtml() {
+        let mutator = function(dom, zipObjectName) {
+            let newBody = new Sanitize().clean(dom.body);
+            dom.body = newBody;
+            return true;
+        }
+        return this.processEachXhtmlFile(mutator);
+    }
+
     processEachXhtmlFile(mutator) {
         let sequence = Promise.resolve();
         let that = this;

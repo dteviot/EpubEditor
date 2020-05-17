@@ -80,7 +80,7 @@ class Main {
     }
 
     extractImages() {
-        return this.epub.extractImages("test.zip", 0)
+        return this.epub.extractImages("test.zip", 1)
             .catch(e => window.alert(e));
     }
 

@@ -350,8 +350,8 @@ class Epub {
         let that = this;
         let chapterIndex = startChapterIndex;
         for(let zipObjectName of this.opf.xhtmlNames()) {
-            let chapterName = ("000" + chapterIndex);
-            chapterName = "c" + chapterName.substring(name.length - 4);
+            let chapterName = ("00" + chapterIndex);
+            chapterName = "c" + chapterName.substring(chapterName.length - 3);
             ++chapterIndex;
             sequence = sequence.then(function () {
                 return that.extractXhtnml(zipObjectName);

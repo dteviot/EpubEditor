@@ -98,6 +98,13 @@ class Main {
             .then(() => epub.save("test.epub"));
     }
 
+    cleanChrysanthemumGarden() {
+        let css = document.getElementById("removeCssInput").value;
+        let epub = this.epub;
+        return epub.cleanChrysanthemumGarden(css)
+            .then(() => epub.save("test.epub"));
+    }
+
     sanitizeXhtml() {
         let epub = this.epub;
         return epub.sanitizeXhtml()
@@ -172,6 +179,7 @@ class Main {
         document.getElementById("removeAllImagesButton").onclick = this.removeAllImages.bind(this);
         document.getElementById("extractImagesButton").onclick = this.extractImages.bind(this);
         document.getElementById("removeElementsButton").onclick = this.removeElementsMatchingCss.bind(this);
+        document.getElementById("cleanChrysanthemumGardenButton").onclick = this.cleanChrysanthemumGarden.bind(this);
         document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
     }
 }

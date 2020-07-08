@@ -303,6 +303,30 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
+    cleanChrysanthemumGarden(css) {
+        let decryptTable = new Map();
+        let crypt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let clear = "tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM";
+        for(let i = 0; i < crypt.length; ++i) {
+            decryptTable.set(crypt[i], clear[i]);
+        }
+        let decryptChar = c => decryptTable.get(c) ?? c;
+        let decryptString = cypherText => cypherText.split("").map(c => decryptChar(c)).join("");
+
+        let mutator = function(dom, zipObjectName) {
+            for(let e of dom.querySelectorAll("span.jum")) {
+                e.textContent = decryptString(e.textContent);
+            }
+            [...dom.querySelectorAll("span, p, h2")]
+                .filter(e => e.style.height === "1px")
+                .forEach(e => e.remove())
+            return true;
+        }
+        return this.processEachXhtmlFile(mutator);
+    }
+
+    
+
     sanitizeXhtml() {
         let mutator = function(dom, zipObjectName) {
             let newBody = new Sanitize().clean(dom.body);

@@ -325,7 +325,10 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
-    
+    runScript(script) {
+        let mutator = new Function("dom", "zipObjectName", script);
+        return this.processEachXhtmlFile(mutator);
+    }
 
     sanitizeXhtml() {
         let mutator = function(dom, zipObjectName) {

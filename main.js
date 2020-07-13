@@ -105,6 +105,13 @@ class Main {
             .then(() => epub.save("test.epub"));
     }
 
+    runScript() {
+        let script = document.getElementById("mutatorScriptInput").value;
+        let epub = this.epub;
+        return epub.runScript(script)
+            .then(() => epub.save("test.epub"));
+    }
+
     sanitizeXhtml() {
         let epub = this.epub;
         return epub.sanitizeXhtml()
@@ -181,6 +188,7 @@ class Main {
         document.getElementById("removeElementsButton").onclick = this.removeElementsMatchingCss.bind(this);
         document.getElementById("cleanChrysanthemumGardenButton").onclick = this.cleanChrysanthemumGarden.bind(this);
         document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
+        document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
     }
 }
 

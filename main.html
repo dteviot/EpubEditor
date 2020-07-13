@@ -13,10 +13,30 @@
 </head>
 <body>
     <h1>Epub Editor</h1>
-    <div id="drop_zone">
-        <p>Drag epub file to this Drop Zone ...</p>
-    </div>
+    <table id="inputsTable">
+        <tr>
+            <td>
+                <div id="drop_zone">
+                    <p>Drag epub file to this Drop Zone ...</p>
+                </div>
+            </td>
+            <td><textarea id="mutatorScriptInput" rows="7" cols="70">// example: remove "chapter" from title of each chapter
+// dom is the dom for each chapter
+// return true if chapter modified, false if not changed
+let title = dom.querySelector("h1");
+let changed = (title != null);
+if (changed) {
+    title.textContent = title.textContent.replace("Chapter", "");
+}
+return changed;
+            </textarea></td>
+        </tr>
+    </table>
     <table id="controls" hidden="true">
+        <tr>
+            <td></td>
+            <td><button id="runScriptButton">Run script above to modify Epub</button></td>
+        </tr>
         <tr>
             <td></td>
             <td><button id="checkForInvalidXhtmlButton">Check for Invalid XHTML</button></td>

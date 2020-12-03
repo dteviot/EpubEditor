@@ -147,11 +147,11 @@ class Epub {
     }
 
     /** Write modified epub to disk with requested filename */
-    save(filename) {
+    save(filename, mimeType) {
         // need to make a copy of the zip file, otherwise files are not 
         // compressed.
         return this.copyZip()
-            .then(newZip => newZip.generateAsync({ type: "blob" }))
+            .then(newZip => newZip.generateAsync({ type: "blob", "mimeType": mimeType ?? "application/zip" }))
             .then(blob => this.writeToDisk(filename, blob));
     }
 

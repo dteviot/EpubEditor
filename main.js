@@ -37,6 +37,7 @@ class Main {
         }
         if (file !== null) {
             console.log('... file.name = ' + file.name);
+			this.fileName = file.name;
             this.epub = new Epub();
             this.resetUI();
             return this.epub.load(file)
@@ -88,34 +89,34 @@ class Main {
         let watermark = document.getElementById("watermark").value;
         let epub = this.epub;
         return epub.watermarkContent(watermark)
-            .then(() => epub.save("test.epub"));
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
     removeElementsMatchingCss() {
         let css = document.getElementById("removeCssInput").value;
         let epub = this.epub;
         return epub.removeElementsMatchingCss(css)
-            .then(() => epub.save("test.epub"));
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
     cleanChrysanthemumGarden() {
         let css = document.getElementById("removeCssInput").value;
         let epub = this.epub;
         return epub.cleanChrysanthemumGarden(css)
-            .then(() => epub.save("test.epub"));
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
     runScript() {
         let script = document.getElementById("mutatorScriptInput").value;
         let epub = this.epub;
         return epub.runScript(script)
-            .then(() => epub.save("test.epub"));
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
     sanitizeXhtml() {
         let epub = this.epub;
         return epub.sanitizeXhtml()
-            .then(() => epub.save("test.epub"));
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
     removeZeroSizeImages() {
@@ -129,7 +130,7 @@ class Main {
     removeImages(images) {
         return this.epub.removeTagsForImages(images)
             .then(() => this.epub.removeItems(images))
-            .then(() => this.epub.save("test.epub"));
+            .then(() => this.epub.save(this.fileName, "application/epub+zip"));
     }
 
     listImagesInViewOrder() {

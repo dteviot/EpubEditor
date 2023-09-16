@@ -35,9 +35,13 @@ class Main {
                 file = ev.dataTransfer.files[0];
             }
         }
+        this.processFile(file, ev);
+    }
+
+    processFile(file, ev) {
         if (file !== null) {
             console.log('... file.name = ' + file.name);
-			this.fileName = file.name;
+            this.fileName = file.name;
             this.epub = new Epub();
             this.resetUI();
             return this.epub.load(file)
@@ -48,6 +52,10 @@ class Main {
     }    
 
     removeDragData(ev) {
+        if (ev == null) {
+            return;
+        }
+
         console.log('Removing drag data')
       
         if (ev.dataTransfer.items) {
@@ -57,6 +65,10 @@ class Main {
             // Use DataTransfer interface to remove the drag data
             ev.dataTransfer.clearData();
         }
+    }
+
+    onFileNameInputChange(fileNameInput) {
+        this.processFile(fileNameInput.files[0], null);
     }
 
     onEpubLoaded() {
@@ -190,6 +202,9 @@ class Main {
         document.getElementById("cleanChrysanthemumGardenButton").onclick = this.cleanChrysanthemumGarden.bind(this);
         document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
         document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
+
+        const fileNameInput = document.getElementById('fileNameInput');
+        fileNameInput.addEventListener("change", () => this.onFileNameInputChange(fileNameInput), false);
     }
 }
 

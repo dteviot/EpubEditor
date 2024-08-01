@@ -295,6 +295,7 @@ class Epub {
         let mutator = function(dom, zipObjectName) {
             let altered = false;
             for(let e of dom.querySelectorAll(css)) {
+                console.log(e.textContent);
                 e.remove();
                 altered = true;
             }
@@ -342,8 +343,10 @@ class Epub {
     processEachXhtmlFile(mutator) {
         let sequence = Promise.resolve();
         let that = this;
-        for(let zipObjectName of this.opf.xhtmlNames()) {
+        let names = this.removeTocForYuyufilteredNames(this.opf.xhtmlNames());
+        for(let zipObjectName of names) {
             sequence = sequence.then(function () {
+                console.log("processing " + zipObjectName);
                 return that.extractXhtnml(zipObjectName);
             }).then(function(dom) {
                 let modified = mutator(dom, zipObjectName);
@@ -352,6 +355,10 @@ class Epub {
         }
         return sequence;
     }
+
+     removeTocForYuyufilteredNames(list) {
+         return list.filter(n => !n.endsWith("Table_of_Contents.xhtml"));
+     }
 
     checkForInvalidXhtml() {
         let sequence = Promise.resolve();

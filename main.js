@@ -130,6 +130,12 @@ class Main {
         return epub.sanitizeXhtml()
             .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
+    
+    convertTableToDiv() {
+        let epub = this.epub;
+        return epub.convertTableToDiv()
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
+    }
 
     removeZeroSizeImages() {
         return this.removeImages(this.epub.findZeroSizeImages());
@@ -201,6 +207,7 @@ class Main {
         document.getElementById("removeElementsButton").onclick = this.removeElementsMatchingCss.bind(this);
         document.getElementById("cleanChrysanthemumGardenButton").onclick = this.cleanChrysanthemumGarden.bind(this);
         document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
+        document.getElementById("convertTableToDivButton").onclick = this.convertTableToDiv.bind(this);
         document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
 
         const fileNameInput = document.getElementById('fileNameInput');

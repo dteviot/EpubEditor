@@ -352,6 +352,36 @@ class Epub {
         }
         return sequence;
     }
+    
+    convertTableToDiv() {
+        let mutator = function(dom, zipObjectName) {
+            function replaceTableToDivHelper(element, elementtoreplace, csstext) {
+                if (element == null || element == undefined) {
+                    return;
+                }
+                for(let node of [...element.querySelectorAll(elementtoreplace)]) {
+                    let elementchildren = [...node.childNodes];
+                    let div = document.createElement("div");
+                    div.append(...elementchildren);
+                    if (elementtoreplace == "table") {
+                        node.parentNode.style.overflow = "visible";
+                    }
+                    if (csstext != "") {
+                        div.style.cssText = csstext;
+                    }
+                    node.replaceWith(div);
+                }
+            }
+            for(let table of [...dom.querySelectorAll("table")]) {
+                replaceTableToDivHelper(table, "td", "flex: 1;padding: 5px;border: 1px solid black;");
+                replaceTableToDivHelper(table, "tr", "display: flex;border: 1px solid black;");
+                replaceTableToDivHelper(table, "tbody", "");
+                replaceTableToDivHelper(table.parentNode, "table", "border-collapse: collapse;width: 100%;");
+            }
+            return true;
+        }
+        return this.processEachXhtmlFile(mutator);
+    }
 
     checkForInvalidXhtml() {
         let sequence = Promise.resolve();

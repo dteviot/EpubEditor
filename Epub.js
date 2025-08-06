@@ -383,6 +383,41 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
+    appendSourceLinkInEachChapter() {
+        let sequence = Promise.resolve();
+        let that = this;
+        let contentopfpath = "OEBPS/content.opf";
+        sequence = this.extractXhtnml(contentopfpath).then(function(contentopf) {
+            let sequence = Promise.resolve();
+            let regex = new RegExp(/^xhtml[0-9]+/g);
+            let chapters = [...contentopf.querySelectorAll("item")].filter(a => (a.id.match(regex) != null));
+            let chaptersource = chapters.map(a => ["OEBPS/"+a.attributes.href.textContent, contentopf.getElementById("id." + a.id).innerText]);
+            let chaptersourceobject = Object.fromEntries(chaptersource);
+            for(let zipObjectName of that.opf.xhtmlNames()) {
+                sequence = sequence.then(function () {
+                    return that.extractXhtnml(zipObjectName);
+                }).then(function(dom) {
+                    let link = chaptersourceobject[zipObjectName];
+                    if (link != null) {
+                        let div = dom.createElement("div");
+                        let p = dom.createElement("p");
+                        let a = dom.createElement("a");
+                        p.innerText = "Source: ";
+                        a.href = link;
+                        a.innerText = link;
+                        div.appendChild(p);
+                        p.appendChild(a);
+                        dom.body.appendChild(div);
+                        return that.replaceZipObject(zipObjectName, dom, true);
+                    }
+                    return that.replaceZipObject(zipObjectName, dom, false);
+                });                
+            }
+            return sequence;
+        });  
+        return sequence;
+    }
+
     checkForInvalidXhtml() {
         let sequence = Promise.resolve();
         let bad = [];

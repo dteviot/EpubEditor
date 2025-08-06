@@ -137,6 +137,12 @@ class Main {
             .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
+    appendSourceLinkInEachChapter() {
+        let epub = this.epub;
+        return epub.appendSourceLinkInEachChapter()
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
+    }
+
     removeZeroSizeImages() {
         return this.removeImages(this.epub.findZeroSizeImages());
     }
@@ -208,6 +214,7 @@ class Main {
         document.getElementById("cleanChrysanthemumGardenButton").onclick = this.cleanChrysanthemumGarden.bind(this);
         document.getElementById("sanitizeButton").onclick = this.sanitizeXhtml.bind(this);
         document.getElementById("convertTableToDivButton").onclick = this.convertTableToDiv.bind(this);
+        document.getElementById("appendSourceLinkInEachChapterButton").onclick = this.appendSourceLinkInEachChapter.bind(this);
         document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
 
         const fileNameInput = document.getElementById('fileNameInput');

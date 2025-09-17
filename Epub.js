@@ -304,19 +304,32 @@ class Epub {
     }
 
     cleanChrysanthemumGarden(css) {
-        let decryptTable = new Map();
-        let crypt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        let clear = "tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM";
-        for(let i = 0; i < crypt.length; ++i) {
-            decryptTable.set(crypt[i], clear[i]);
-        }
-        let decryptChar = c => decryptTable.get(c) ?? c;
-        let decryptString = cypherText => cypherText.split("").map(c => decryptChar(c)).join("");
-
         let mutator = function(dom, zipObjectName) {
-            for(let e of dom.querySelectorAll("span.jum")) {
-                e.textContent = decryptString(e.textContent);
+            let decrypt = (clear, selector) => {
+                let crypt = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                let decryptTable = new Map();
+                for(let i = 0; i < crypt.length; ++i) {
+                    decryptTable.set(crypt[i], clear[i]);
+                }
+                let decryptChar = (c) => decryptTable.get(c) ?? c;
+                let decryptString = (cypherText) => cypherText.split("").map(c => decryptChar(c)).join("");
+                for(let e of dom.querySelectorAll(selector)) {
+                    console.log(e.textContent);
+                    e.textContent = decryptString(e.textContent);
+                    console.log(e.textContent);
+                }
             }
+
+            decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
+            decrypt("qVTPNEAHbykpxiYtlWdOzUGnsMcZXBQuSaRKICJwgFLDefrvhmjo", "span[style*='ZxXoTeIptL']");
+            decrypt("PwyUBVTYqAXxZMfEjrSeDazCkWoivHJbKltNdLOhupgImQscnFRG", "span[style*='ijqXQijeiD']");
+            decrypt("dTKbCMwpkGWJrJOUiFVesPoXRfQSmuvqglEyDBLnzIYHAZcaxthN", "span[style*='WTKNOkuWha']");
+            decrypt("JznCuUZtTgKGAkvwBSOYLHsihaNEPpMVefWRoqlymbjcIXrdQDFx", "span[style*='rnlfJtfRCW']");
+            decrypt("cHMZtWYfaEipjXbRPLogAFSBDVrOmUNxIlkeCszTuwKhdJnGqQyv", "span[style*='LPJMfkmHKG']");
+
+            decrypt("iKhDSORsAbqBtGNYpecfHQEwkIxJlWCmTLjFdzrPXuvVonMygUZa", "span[style*='PWJEddcfVv']");
+            decrypt("gjkChAdIBJYOVlxTXnisWLvmyEMtuGzPpaebFDcZoRHSwUrNfqKQ", "span[style*='ofcUGYMWCy']");
+
             [...dom.querySelectorAll("span, p, h2")]
                 .filter(e => e.style.height === "1px")
                 .forEach(e => e.remove())

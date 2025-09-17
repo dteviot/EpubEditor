@@ -17,5 +17,8 @@ This is very much a work in progress, and not really my best work.
 * Open index.html in Chrome
 * Repeat steps from (easy way) starting with "Drag and drop epub"
 
+## How to write script to unscramble ChrysanthemumGarden
+https://github.com/dteviot/WebToEpub/issues/2173#issuecomment-3296153047
+
 ## License information
 Licenced under GPLv3.

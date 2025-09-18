@@ -314,9 +314,8 @@ class Epub {
                 let decryptChar = (c) => decryptTable.get(c) ?? c;
                 let decryptString = (cypherText) => cypherText.split("").map(c => decryptChar(c)).join("");
                 for(let e of dom.querySelectorAll(selector)) {
-                    console.log(e.textContent);
                     e.textContent = decryptString(e.textContent);
-                    console.log(e.textContent);
+                    console.log("(" + selector + ")" + e.textContent);
                 }
             }
 
@@ -328,7 +327,12 @@ class Epub {
             decrypt("cHMZtWYfaEipjXbRPLogAFSBDVrOmUNxIlkeCszTuwKhdJnGqQyv", "span[style*='LPJMfkmHKG']");
 
             decrypt("iKhDSORsAbqBtGNYpecfHQEwkIxJlWCmTLjFdzrPXuvVonMygUZa", "span[style*='PWJEddcfVv']");
-            decrypt("gjkChAdIBJYOVlxTXnisWLvmyEMtuGzPpaebFDcZoRHSwUrNfqKQ", "span[style*='ofcUGYMWCy']");
+            decrypt("gjkChAdlBJYOVIxTXnisWLvmyEMtuGzPpaebFDcZoRHSwUrNfqKQ", "span[style*='ofcUGYMWCy']");
+            decrypt("FGqNYQLTPUHecErxRuCjBkDXbMaKyfzOhJdipolAgWItZVsnmSvw", "span[style*='hffmcMyCbf']");
+            decrypt("upTZvvjGaMwRBUXelqJACQfFkybrEnmoWcgHxYPztSshDOIdLiKN", "span[style*='ktlmWRazmy']");
+            decrypt("RWOVtgzYjNfXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='UxneBYgsjE']");
+            decrypt("uZcQtkAyRnJgxGVTbEXYwOBlWhvmKqoPrjdceHNDpUzfSFMaisIL", "span[style*='XMgbgIppHk']");
+            decrypt("inDFJlbUacwvHOIdxushAoLVMZCSeYjPXkzNtQRfyqTrpWGgmEBK", "span[style*='lqagMDCZsf']");
 
             [...dom.querySelectorAll("span, p, h2")]
                 .filter(e => e.style.height === "1px")

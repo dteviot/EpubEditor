@@ -435,6 +435,25 @@ class Epub {
         return sequence;
     }
 
+    linkExtraFonts() {
+        let sequence = Promise.resolve();
+        let allkeys = [...this.zipObjects.keys()];
+        allkeys = allkeys.filter(a => a.startsWith("OEBPS/Fonts/")).map(a => a.replace("OEBPS/Fonts/", ""));
+
+        let that = this;
+        let stylesheetpath = "OEBPS/Styles/stylesheet.css";
+
+        let file = this.zipObjects.get(stylesheetpath);
+        sequence = file.async("text").then(function (text){
+            for (let i = 0; i < allkeys.length; i++) {
+                text = text + "\n@font-face {\n  src: url(../Fonts/"+allkeys[i]+");\n  font-family: \""+allkeys[i].replace(/\..+/,"")+"\";\n}\n";
+            }
+            let options = that.createZipOptions(file);
+            return that.zip.file(stylesheetpath, text, options);
+        });
+        return sequence;
+    }
+
     checkForInvalidXhtml() {
         let sequence = Promise.resolve();
         let bad = [];

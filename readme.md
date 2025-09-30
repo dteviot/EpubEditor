@@ -17,6 +17,16 @@ This is very much a work in progress, and not really my best work.
 * Open index.html in Chrome
 * Repeat steps from (easy way) starting with "Drag and drop epub"
 
+## How to run a script
+https://github.com/dteviot/WebToEpub/issues/2173#issuecomment-3296153047
+* Go to https://dteviot.github.io/EpubEditor/
+* Drag and drop epub onto the drop zone. (The box on the LEFT.) Or click the "Choose File" button and select file on dialog that pops up.
+* Replace the text in the box on the RIGHT with your script.
+* Click option "Run script above to modify Epub".
+* When it finishes, save result.
+
+Note: a collection of existing scripts can be found at: https://github.com/dteviot/EpubEditor/tree/master/mutators
+
 ## How to write script to unscramble ChrysanthemumGarden
 https://github.com/dteviot/WebToEpub/issues/2173#issuecomment-3296153047
 

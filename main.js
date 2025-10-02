@@ -125,6 +125,13 @@ class Main {
             .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
+    runScriptAsync() {
+        let script = document.getElementById("mutatorScriptInput").value;
+        let epub = this.epub;
+        return epub.runScriptAsync(script)
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
+    }
+
     sanitizeXhtml() {
         let epub = this.epub;
         return epub.sanitizeXhtml()
@@ -223,6 +230,7 @@ class Main {
         document.getElementById("appendSourceLinkInEachChapterButton").onclick = this.appendSourceLinkInEachChapter.bind(this);
         document.getElementById("linkExtraFontsButton").onclick = this.linkExtraFonts.bind(this);
         document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
+        document.getElementById("runScriptAsyncButton").onclick = this.runScriptAsync.bind(this);
 
         const fileNameInput = document.getElementById('fileNameInput');
         fileNameInput.addEventListener("change", () => this.onFileNameInputChange(fileNameInput), false);

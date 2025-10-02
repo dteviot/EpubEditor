@@ -369,6 +369,12 @@ class Epub {
         return this.processEachXhtmlFile(mutator);
     }
 
+    runScriptAsync(script) {
+        const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
+        let asyncMutator = new AsyncFunction("dom", "zipObjectName", script);
+        return this.processEachXhtmlFileAsync(asyncMutator);
+    }
+
     sanitizeXhtml() {
         let mutator = function(dom, zipObjectName) {
             let newBody = new Sanitize().clean(dom.body);
@@ -391,7 +397,23 @@ class Epub {
         }
         return sequence;
     }
-    
+
+    processEachXhtmlFileAsync(asyncMutator) {
+        let sequence = Promise.resolve();
+        const that = this;
+        for (const zipObjectName of this.opf.xhtmlNames()) {
+            sequence = sequence
+                .then(() => {
+                    return that.extractXhtnml(zipObjectName);
+                })
+                .then(async (dom) => {
+                    const modified = await asyncMutator(dom, zipObjectName);
+                    return that.replaceZipObject(zipObjectName, dom, modified);
+                });
+        }
+        return sequence;
+    }
+
     convertTableToDiv() {
         let mutator = function(dom, zipObjectName) {
             function replaceTableToDivHelper(element, elementtoreplace, csstext) {

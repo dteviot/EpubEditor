@@ -1,28 +1,25 @@
-    let known = [
-        "ZxXoTeIptL",
-        "ijqXQijeiD",
-        "WTKNOkuWha",
-        "rnlfJtfRCW",
-        "LPJMfkmHKG",
-        "PWJEddcfVv",
-        "ofcUGYMWCy",
-        "hffmcMyCbf",
-        "ktlmWRazmy",
-        "UxneBYgsjE",
-        "XMgbgIppHk",
-        "lqagMDCZsf",
-    ];
 
-    for (let e of dom.querySelectorAll("span[style^='font-family']")) {
-        let style = e.getAttribute("style");
-        let newCypher = true;
-        for (let k of known) {
-            if (style.includes(k)) {
-                newCypher = false;
-                break;
-            }
-        }
-        if (newCypher) {
-            console.log(style);
+    if (!Window.epubstate) {
+        Window.epubstate = new Set();
+        Window.epubstate.add("ZxXoTeIptL");
+        Window.epubstate.add("ijqXQijeiD");
+        Window.epubstate.add("WTKNOkuWha");
+        Window.epubstate.add("rnlfJtfRCW");
+        Window.epubstate.add("LPJMfkmHKG");
+        Window.epubstate.add("PWJEddcfVv");
+        Window.epubstate.add("ofcUGYMWCy");
+        Window.epubstate.add("hffmcMyCbf");
+        Window.epubstate.add("ktlmWRazmy");
+        Window.epubstate.add("UxneBYgsjE");
+        Window.epubstate.add("XMgbgIppHk");
+        Window.epubstate.add("lqagMDCZsf");
+    }
+    let known = Window.epubstate;
+
+    for (let span of dom.querySelectorAll("span[style^='font-family']")) {
+        let name = span.getAttribute("style").split(":")[1].trim().replace(";", "");
+        if (!known.has(name)) {
+            known.add(name);
+            console.log(name);
         }
     }

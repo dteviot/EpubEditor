@@ -387,6 +387,7 @@ class Epub {
     processEachXhtmlFile(mutator) {
         let sequence = Promise.resolve();
         let that = this;
+        Window.epubstate = null;
         for(let zipObjectName of this.opf.xhtmlNames()) {
             sequence = sequence.then(function () {
                 return that.extractXhtnml(zipObjectName);
@@ -401,6 +402,7 @@ class Epub {
     processEachXhtmlFileAsync(asyncMutator) {
         let sequence = Promise.resolve();
         const that = this;
+        Window.epubstate = null;
         for (const zipObjectName of this.opf.xhtmlNames()) {
             sequence = sequence
                 .then(() => {

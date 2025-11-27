@@ -473,7 +473,7 @@ class Epub {
             decrypt("upTZVvjGaMwRBUXelqJACQfFkybrEnmoWcgHxYPztSshDOIdLiKN", "span[style*='vTsEgzHdeB']");
 
 			decrypt("eOqaECAymwKpRhdcvWNLTxUHgnVXfSoMjPJkZQbDtBFGizYrIlsu", "span[style*='KtsYVqTANh']");
-			decrypt("MLTjxanXPEUrhyKpRfdNAzebCKWlovqQBgDSZuGciHmswYFOIVJt", "span[style*='mMigVYVPkh']");
+			decrypt("MLTjxanXPEUrhyKpRfdNAzebCkWlovqQBgDSZuGciHmswYFOIVJt", "span[style*='mMigVYVPkh']");
 			decrypt("XiFDICeMQtqEvboVjuhdcOgySaNzwBJGKWrPfTAmnsRHUxYLZkpl", "span[style*='MYkzWbAYqJ']");
 			decrypt("LzRsNxDJpbYSdGhcXuCgoqnFmrHEiZjyMtOfIKPATvwQBVakleWU", "span[style*='oHUBOoUSuY']");
 			decrypt("MxaoiDLZktbgBpfmuGqXdJwsSCOYryHVRUKlzNvAnTjIWchPQFeE", "span[style*='QWTHGRLvIs']");

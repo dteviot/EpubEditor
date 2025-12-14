@@ -183,6 +183,11 @@ decrypt("KFhayuLfBRAgqJvnjeSHwPMUQzEcrTpbkOZxVlYNiXstGoWImCDd", "span[style*='Ni
 decrypt("TsaIRfGZnyhKvYobSeUgOBmlXCAVcwHzpLDxduPtJFQNiWrMjkqE", "span[style*='SjSfEduakT']");
 decrypt("qVTPNEAHbykpxiYtlWdOzUGnsMcZXBQuSaRKICJwgFLDefrvhmjo", "span[style*='SmnZWhqOAx']");
 
+decrypt("KFhayuLfBRAgqJvnjeSHwPMUQzEcrTpbkOZxVlYNiXstGoWImCDd", "span[style*='sLdJMcyDQQ']");
+decrypt("agNUKtWLPAiYezZrJpCbQuqTGMcVxHnjlSfvRImkswOEdDyBXhoF", "span[style*='dkBcnpgeJt']");
+decrypt("TLkrzWIdXhBpqmDytFvMJQAngUacfVbPHijlRYCusZoONKEGSexw", "span[style*='cdSZRpQFCO']");
+decrypt("HFETmJAhKPnDOYjBwyxuXatiZRoVpMWvefcqzNkgQlsCdIGUbSrL", "span[style*='SzisrFOoaT']");
+
 decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
     if (!Window.epubstate) {

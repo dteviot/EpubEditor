@@ -518,6 +518,15 @@ class Epub {
             decrypt("LeGblOkQZRWdVHtXJDBPKCvhANjwEIcyrYaMmFgTsoUfSpzxqnui", "span[style*='HVqkKFQEUi']");
             decrypt("yXUOpZCFJTvGrnoeuLMlgzdxjcSERPmfwKIDiNYVsWHtbBqQAahk", "span[style*='WeJpVkXZPy']");
 
+			decrypt("gXGiFupUyltQdSezsofMPVcqHLBROTmCNEYrZhaWDkKAIJbxvwjn", "span[style*='XDMJrfZZtd’]”);
+			decrypt("AiHqunvkxlfdBZNgPwFCtMIYXOEVyLczSRsaKmGhJUeTbDpjoQrW", "span[style*='DyxVyjMiPr']");
+			decrypt("uZCQtkAyRnJgxGVTbEXYwOBlWhvmKqoPrjdceHNDpUzfsFMaisIL", "span[style*='WAEgGENQGl']");
+			decrypt("aDtPrWLUgMHlGbkvsQCeoTNAxYjzXcuKEyqIfJRdBOFmZwiSpnVh”, "span[style*='VditYbQcZY']");
+			decrypt("NXFoTgnBCDVqEKeyxGrRlwjkhaIWdHpZsJfYMQSUAtLziOmvcubP", "span[style*='xmUEQgNMDz']");
+			decrypt("ZCmagAnbByNiEIvutJqOpLxrSQfhzwjDUVRlMFKGXTWPHoYcksed", "span[style*='rnwCJUQnAq’]”);
+			decrypt("UaAfIxLRXihODSjvBEFJeZuGTPlWnVQzcyqrHNkmoMKCgbtsdYwp", "span[style*='PXaIJqncph']");
+			decrypt("DwChjXeaLTrHMBxEzfsuPKmWcJqZbiASNlVRFpGgkQdUoyOvntYI", "span[style*='sExoCVPPaw']");
+
             decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
             [...dom.querySelectorAll("span, p, h2")]

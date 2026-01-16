@@ -543,6 +543,9 @@ class Epub {
 			decrypt("hrGNJQxmbjuUDROFWpHsLcnBPIvkVYtAadeoCwqyEMizlTKgZXfS", "span[style*='OeEgxHEDTY']");
 			decrypt("neLPzpigAlGXRhDkQbSJyvIwVjYxfoOMcqsENrUWtmTFCZHaBduK", "span[style*='psxLlxvDlG']");
 
+            decrypt("vDxtzobGrXESwLWypAkZOMBYQNsdPUTVcFhnHajgRmiKfeuCIJlq", "span[style*='HjvKbDCsDH']");
+            decrypt("neLPzpigAlGXRhDkQbSJyvIwVjYxfoOMcqsENrUWtmTFCZHaBduK", "span[style*='zqPFkcmlDB']");
+
             decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
             [...dom.querySelectorAll("span, p, h2")]

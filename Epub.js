@@ -688,6 +688,19 @@ class Epub {
             decrypt("lMiDtBgoaKXzIhdLfGjQScPbTEHNemZkCxuRFUqvnJwsVyOrWYAp", "span[style*='VcRvSpCYUO']");
             decrypt("sFUShVjieBHoQArygKWqTdPELkNIftXwcDZmpxuzbYJMnvORlCaG", "span[style*='yVAETkZivA']");
 
+			decrypt("hrGNJQxmbjuUDROFWpHSLcnBPIvkVYtAadeoCwqyEMizITKgZXfS", "span[style*='MrsDKXcJRu']");
+			decrypt("DwChjXeaLTrHMBxEzfsuPKmWcJqZbiASNlVRFpGgkQdUoyOvntYI", "span[style*='bjcFJkgyHn']");
+			decrypt("dTKbCMwpkGWJrjOUiFVesPoXRfQSmuvqglEyDBLnzIYHAZcawthN", "span[style*='BMmaSMOgik']");
+			decrypt("ViphqmcezIsEnaBKkUGoyQJxrufTYOLRFjwlXStDAHdWMPvbCNZg", "span[style*='HAzpEZytyj']");
+			decrypt("ZhBxqGpCuKXjcVQebPlmHgzsdvritDUSWaYwJnIyLEMRONoAkfFT", "span[style*='JBFKtbeAMI']");
+			decrypt("HqOPjeAgIRWtQFyaKBCVGNZrUXdopflwMYEivJsSTucDxnhbzmLk", "span[style*='lKTYOCkvjn']");
+			decrypt("HwSjBkqPuabFCNgvlXGiEDpZJURnfKoLATOyQlmshtYdWMVrecxz", "span[style*='rNGLQMYJCb']");
+			decrypt("iKhDSORsAbqBtGNYpecfHQEwkIxJlWCmTLjFdzrPXuvVonMygUZa", "span[style*='TBbQBejfVZ']");
+			decrypt("lMiDtBgoaKXzIhdLfGjQScPbTEHNemZkCxuRFUqvnJwsVyOrWYAp", "span[style*='TBZnNCLGOV']");
+			decrypt("XUQvNfzGwdOAcRMIWhYbTlBFSxojpnZDPCHVktKEJmuqgsyariLe", "span[style*='xfHJfsTsoc']");
+			decrypt("eCPpVmfshBHdcASJFquMKNLlYtnoGkZXQvUEgzWDOjwRbxiarTIy", "span[style*='yndLSmPuYx']");
+			decrypt("qVGZydWjAotzwmuvXfrBbTRHLiDkpxanSQ2echMsYgPJCE4FUONk", "span[style*='mkZnmyCyTK']");
+
             decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
             [...dom.querySelectorAll("span, p, h2")]

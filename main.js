@@ -156,6 +156,13 @@ class Main {
             .then(() => epub.save(this.fileName, "application/epub+zip"));
     }
 
+    updateDate() {
+        let dateString = document.getElementById("updateDateInput").value;
+        let epub = this.epub;
+        return epub.updateDate(dateString)
+            .then(() => epub.save(this.fileName, "application/epub+zip"));
+    }
+
     removeZeroSizeImages() {
         return this.removeImages(this.epub.findZeroSizeImages());
     }
@@ -229,6 +236,7 @@ class Main {
         document.getElementById("convertTableToDivButton").onclick = this.convertTableToDiv.bind(this);
         document.getElementById("appendSourceLinkInEachChapterButton").onclick = this.appendSourceLinkInEachChapter.bind(this);
         document.getElementById("linkExtraFontsButton").onclick = this.linkExtraFonts.bind(this);
+        document.getElementById("updateDateButton").onclick = this.updateDate.bind(this);
         document.getElementById("runScriptButton").onclick = this.runScript.bind(this);
         document.getElementById("runScriptAsyncButton").onclick = this.runScriptAsync.bind(this);
 

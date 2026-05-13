@@ -860,6 +860,14 @@ class Epub {
         return sequence;
     }
 
+    updateDate(dateString) {
+        let dateEl = this.opf.dom.querySelector("dc\\:date:not([opf\\:event])");
+        if (dateEl !== null) {
+            dateEl.textContent = dateString;
+        }
+        return Promise.resolve(this.replaceZipObject(this.opf.zipObjectName, this.opf.dom, true));
+    }
+
     checkForInvalidXhtml() {
         let sequence = Promise.resolve();
         let bad = [];

@@ -743,6 +743,20 @@ decrypt("aDtPrWLUgMHlGbkvsQCeoTNAxYjxXcuKEyqIfJRdBOFmZwiSpnVh", "span[style*='fM
 decrypt("YzklSNaconDsutOixICrJZwHeAyUEPhQBpFdTbjVmfRWqLvgXGKM", "span[style*='gVBgxmsqDB']");
 decrypt("JznCuUZtTgKGAkvwBSOYLHsihaNEPpMVefWRoqlymbjcIXrdQDFx", "span[style*='RJBeCqserb']");
 
+decrypt("TsaIRfGZnYhKvYobSeUgOBmlXCAVcwHzpLDxduPtJFQNiWrMjkqE", "span[style*='aPqUDYiXqg']");
+decrypt("RWOVtgzYjNFXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='AWggbZhLlE']");
+decrypt("ViphqmcezIsEnaBKkUGoyQJxrufTYOLRFjwlXStDAHdWMPvbCNZg", "span[style*='DQpClQAktu']");
+decrypt("TqAocipRUanGQmJlSxWZMgHhCrIPkfVFKbEwjXLdBeNsYuOzDtyv", "span[style*='FocLiWvPDo']");
+decrypt("MxaoiDLZktbgBpfmuGqXdJwsSCOYryHVRUKlzNvAnTjIWchPQFeE", "span[style*='iKBKfmoKdX']");
+decrypt("EdmCAkeowsNOfGJKbMgTitzIUjLxnrYQZXqcvuylWHDSphRBaFVP", "span[style*='KcbPVmSCiG']");
+decrypt("eOqaECAymwKprhdcvWNLTxUHgnVXfSoMjPJkzQbDtBFGizYrIlsu", "span[style*='kesmVWzqvb']");
+decrypt("MLTjxanXPEUrhyKpRfdNAzebCkWlovqQBgDSZuGciHmswYFOIVJt", "span[style*='KmrRzqfENu']");
+decrypt("UaAfIxLRXihODSjcBEFJeZuGTPlWnVQzcyqrHNkmoMKCgbtsdYwp", "span[style*='ptAOsdXOuv']");
+
+decrypt("NszhwBZXSOtiqdJRCrDgjUHaWEAQpbyklePFTuVcomGxfYvILKMn", "span[style*='EtnzGUAeMk']");
+decrypt("MFbcZDXiNudarsGYTogEAUjBxyIvzkSHVRwKfQOWmhLqtneplPCJ", "span[style*='HQZJawIrVm']");
+decrypt("XBPQJaTEScurUgntLhipeROoKksGzAYCWMjqFdZlwmbDHvyINVfx", "span[style*='KxQLEwSkjY']");
+
     if (!Window.epubstate) {
         Window.epubstate = new Set();
     }

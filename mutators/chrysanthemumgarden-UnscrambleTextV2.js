@@ -767,6 +767,27 @@ decrypt("PwyUBVTYqAXxZMfEjrSeDazCkWoivHJbKltNdLOhupgImQscnFRG", "span[style*='lW
 decrypt("jbsUhGHLVKtioYfAnrvTIBdpFOWgMExDRPyXNzeQawZulkSqmcCJ", "span[style*='NRKygqPTMI']");
 decrypt("inDFJlbUacwvHOIdxushAoLVMZCSeYjPXkzNtQRfyqTrpWGgmEBK", "span[style*='PjOsCYNpCi']");
 
+decrypt("uZCQtkAyRnJgxGVTbEXYwOBlWhvmKqoPrjdceHNDpUzfSFMaisIL", "span[style*='BuKktLFsBD']");
+decrypt("TqAocipRUanGQmJlSxWZMgHhCrIPkfVFKbEwjXLdBeNsYuOzDtyv", "span[style*='duAUOdvNnz']");
+decrypt("CmWkeQxEgfFYuAXHUwpVRGiMvJbBdojPalhrsSZDqLyOKtTNIcnz", "span[style*='DyNyTbCjLS']");
+decrypt("RWOVtgzYjNfXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='ecUgNtqmOX']");
+decrypt("FINtlAjGYqeXHKDuPdBhpsWvQnLSJmrbxkyzwZogcfRVOUTECaMi", "span[style*='GOVgkvmwLW']");
+decrypt("HFETmJAhKPnDOYjBwyxuXatiZRoVpMWvefcqzNkgQlsCdIGUbSrL", "span[style*='hSOkEzrUdy']");
+decrypt("cHMZtWYfaEipjXbRPLogAFSBDVrOmUNxIlkeCszTuwKhdJnGqQyv", "span[style*='KFXtkDrlcW']");
+decrypt("SBGwfKvctrjOmdyzXAYJWxhqReUDIaLiEFTNulPZoHgbksMpVQCn", "span[style*='mehEJLSwzT']");
+decrypt("eDCzyBhMrKZJnNadoxOLtmiIvHTcPbSRYlfqukUgAGXspwVQFEWj", "span[style*='MtDPRDpOIA']");
+decrypt("VStMAakjpfRQFUGWeqrguCdblcvYIDHNKzywBxKTnsZmPJiXEohO", "span[style*='nLGwZrEHfd']");
+decrypt("qVGZydWjAotzwmuvXfrBbTRHLiDkpxanSQlechMsYgPJCEIFUONk", "span[style*='NsWENITftu']");
+decrypt("SwVuEnpXNaxfrihyQFIPOLmMYZUjlvRJeHodbDGATsBkztgcqWCK", "span[style*='NySEndUEbl']");
+decrypt("vBIiyHArRYXlVhqdtZQxOzKjgPcwSEDaMsCUnbNpfoWeGukJTLFm", "span[style*='oUgtZTGozh']");
+decrypt("eGzlEDIZUgQyYPBHRqitLSXTahMOdnuvAFcxkspjoNJCfwKbVmrW", "span[style*='pawlHhwceR']");
+decrypt("XiFDICeMQtqEvboVjuhdcOgySaNzwBJGKWrPfTAmnsRHUxYLZkpl", "span[style*='PMpvaSkHHz']");
+decrypt("ltTWhQwUrJcBPAuvRjSskzKOVYgHZeyIdFfqMpoxXnEmLCGiNabD", "span[style*='qilPkOEdXS']");
+decrypt("SwVuEnpXNaxfrihyQFIPOLmMYZUjlvRJeHodbDGATsBkztgcqWCK", "span[style*='sgZOXjHoNM']");
+decrypt("PwzuNiaQBycMxhZfElTdLkegHRUJrjWKXVYmADoqntOCGsSIpFbv", "span[style*='sqwHKxlHQE']");
+decrypt("CRLUaqKEwPhAdFIYZDQNpxBnSisvjucGTzOgfekXJbmrWtoVyHlM", "span[style*='sZNFisYMcn']");
+decrypt("XUQvNfzGwdOAcRMIWhYbTlBFSxojpnZDPCHVktKEJmuqgsyariLe", "span[style*='vpfPPnlQvy']");
+
     if (!Window.epubstate) {
         Window.epubstate = new Set();
     }

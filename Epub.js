@@ -1197,6 +1197,26 @@ class Epub {
             decrypt("SDhCdAvmspcaFJMxRNBriZnoHeWKYgbQwVtKPXTLEUjOfzGqyIlu", "span[style*='WyOVbFqtsn']");
             decrypt("BZbgSrOAdKkspTNVaJEWIQtmxFzflnGcHLqDviUheYuMyPowCxjR", "span[style*='zzQrJWaLws']");
 
+            decrypt("DwChjXeaLTrHMBxEzfsuPKmWcJqZbiASNlVRFpGgkQdUoyOvntYI", "span[style*='wzModeUHBz']");
+            decrypt("AqlHphQCbUZgnYieWuwLzTvJMFxIPKtRmoarEskDVjGNcfXyBdOS", "span[style*='TpQORTMRyX']");
+            decrypt("PwyUBVTYqAXxZMfEjrSeDazCkWoivHJbKltNdLOhupgImQscnFRG", "span[style*='IooeTUobqz']");
+            decrypt("ERzndSqFrxuDMNtkVyOYfeTjcIJPaHwhovGKCgQZbWLAmBpsXiUl", "span[style*='NOUmfWriJF']");
+            decrypt("jbsUhGHLVKtioYfAnrvTIBdpFOWgMExDRPyXNzeQawZulkSqmcCJ", "span[style*='AQfmHjTdQg']");
+            decrypt("EdmCAkeowsNOfGJKbMgTitzIUjLxnrYQZXqcvuylWHDSphRBaFVP", "span[style*='vSjAsmUWID']");
+            decrypt("qVTPNEAHbykpxiYt1WdOzUGnsMcZXBQuSaRKICJwgFLDefrvhmjo", "span[style*='MzmvTSpwOO']");
+            decrypt("iKhDSORsAbqBtGNYpecfHQEwkIxJlWCmTLjFdzrPXuvVonMygUZa", "span[style*='LYuVQIsAGA']");
+
+            decrypt("qVTPNEAHbykpxiYt1WdOzUGnsMcZXBQuSaRKICJwgFLDefrvhmjo", "span[style*='adNqxdxypW']");
+            decrypt("AqlHphQCbUZgnYieWuwLzTvJMFxIPKtRmoarEskDVjGNcfXyBdOS", "span[style*='CMoEbDxuiV']");
+            decrypt("RIquQNElTOWSUAmcJKBeYijVdgtDoPsCapXzxGfLhnbvwHMZrkyF", "span[style*='fvJnVcQoPb']");
+            decrypt("SDhCdAvmspcaFJMxRNBriZnoHeWKYgbQwVtkPXTLEUjOfzGqyIlu", "span[style*='GVDjjBZQaP']");
+            decrypt("NszhwBZXSOtiqdJRCrDgjUHaWEAQpbyklePFTuVcomGxfYvILKMn", "span[style*='jxNLRbexYM']");
+            decrypt("RWOVtgzYjNfXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='KcBqIhnJSX']");
+            decrypt("bEHGfOrjzDQIWKCBxXhvetgdNnJTFVuAyPscZqRSwoalmpMYiUkL", "span[style*='KqDXOLVDRn']");
+            decrypt("VROtYexfAGoarQSWZcuCypvNMljiIUbqHKmkhXgPdnTFwJEDBLzs", "span[style*='orQuXopkXX']");
+            decrypt("qVGZydWjAotzwmuvXfrBbTRHLiDkpxanSQ2echMsYgPJCE4FUONk", "span[style*='SwBUIBToBV']");
+            decrypt("MLTjxanXPEUrhyKpRfdNAzebCkWlovqQBgDSZuGciHmswYFOIVJt", "span[style*='xitBaNCnvr']");
+
             decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
             [...dom.querySelectorAll("span, p, h2")]
